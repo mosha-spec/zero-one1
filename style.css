@@ -1,0 +1,441 @@
+/* 1. إعدادات الخطوط والألوان العامة */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background-color: #f7ede2; /* لون بيج ناعم ومريح للعين */
+    color: #3d342e;
+    overflow-x: hidden;
+    direction: rtl;
+}
+
+/* خلفية تساقط الورد */
+.petals-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+    overflow: hidden;
+}
+
+/* 2. شاشة البداية (Splash Screen) */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2b3a42, #1a2429); /* لون غامق فخم زي الفيديو */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: opacity 1s ease-in-out, visibility 1s;
+}
+
+.splash-content {
+    text-align: center;
+    color: #fff;
+}
+
+.sparkle-icon {
+    font-size: 2.5rem;
+    color: #dfb76c; /* لون ذهبي ناعم */
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+}
+
+.open-btn {
+    background: transparent;
+    border: 2px solid #dfb76c;
+    color: #dfb76c;
+    padding: 12px 35px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Reem Kufi', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.open-btn:hover {
+    background: #dfb76c;
+    color: #1a2429;
+    box-shadow: 0 0 15px rgba(223, 183, 108, 0.4);
+}
+
+.sub-text {
+    font-size: 0.9rem;
+    color: #a0aab0;
+    margin-top: 10px;
+}
+
+/* 3. أنيميشن البوابة (The Doors) */
+.door-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 90;
+    display: flex;
+}
+
+.door {
+    width: 50%;
+    height: 100%;
+    /* صورة الباب الأزرق العتيق المحاط بالورد (زي الفيديو) */
+    background-image: url('https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800'); 
+    background-size: cover;
+    background-position: center;
+    transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* تعديل خلفية الباب الأيسر والأيمن ليلتقيا في المنتصف بشكل مثالي */
+.door-left {
+    transform-origin: left;
+    border-style: none solid none none;
+    border-width: 2px;
+    border-color: #dfb76c;
+}
+
+.door-right {
+    transform-origin: right;
+    background-position: left center;
+}
+
+/* تفعيل حركة الفتح عند الضغط */
+.door-container.open .door-left {
+    transform: translateX(-100%);
+}
+
+.door-container.open .door-right {
+    transform: translateX(100%);
+}
+
+/* 4. كارت الدعوة الرئيسي */
+.main-card {
+    max-width: 480px; /* مقاس شاشة الموبايل زي الفيديو بالظبط */
+    margin: 0 auto;
+    background: #fff5f0;
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    padding: 20px;
+    position: relative;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.main-card.visible {
+    opacity: 1;
+}
+
+.hidden { display: none; }
+
+/* أزرار الصوت */
+.audio-controls {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 98;
+}
+
+.music-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: white;
+    border: 1px solid #ddd;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* الأنميشن الخاص بالنبض والورد المتساقط */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.7; }
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10px) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+/* 5. تنسيق الهيرو والأسماء */
+.hero-section {
+    text-align: center;
+    padding: 40px 0 20px 0;
+}
+
+.lang-switch {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.lang-switch .active {
+    color: #b38b46;
+    font-weight: bold;
+}
+
+.wedding-title {
+    font-family: 'Reem Kufi', sans-serif;
+    color: #b38b46;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+}
+
+.couple-names {
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 2.5rem;
+    color: #2b3a42;
+    margin: 15px 0;
+    font-weight: 700;
+}
+
+.and-word {
+    font-family: 'Cairo', sans-serif;
+    color: #dfb76c;
+    font-size: 1.8rem;
+}
+
+.divider {
+    color: #dfb76c;
+    margin-top: 10px;
+}
+
+/* 6. صناديق التفاصيل والمعلومات */
+.info-box {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 25px 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    border: 1px solid #f0e6df;
+}
+
+.invitation-text {
+    text-align: center;
+    line-height: 1.8;
+    font-size: 1rem;
+    color: #5a504a;
+    margin-bottom: 25px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.detail-item .icon {
+    font-size: 1.5rem;
+    margin-left: 15px;
+    background: #fdf5f0;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.item-text h3 {
+    font-size: 0.95rem;
+    color: #8c7e74;
+}
+
+.item-text p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #2b3a42;
+}
+
+.maps-btn {
+    display: block;
+    text-align: center;
+    background: #2b3a42;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+.text-center { text-align: center; }
+.sub-divider {
+    border: 0;
+    height: 1px;
+    background: #f0e6df;
+    margin: 15px 0;
+}
+
+/* 7. العداد التنازلي */
+.countdown-section {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.section-title {
+    font-family: 'Reem Kufi', sans-serif;
+    color: #2b3a42;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 360px;
+    margin: 0 auto 20px auto;
+}
+
+.countdown-item {
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    width: 75px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.countdown-item .number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #b38b46;
+}
+
+.countdown-item .label {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.calendar-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.cal-btn {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+/* 8. جدار الصور */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* 9. دفتر الزوار ومنطقة التوقيع بالإصبع */
+.canvas-wrapper {
+    background: #fff;
+    border: 2px dashed #b38b46;
+    border-radius: 10px;
+    margin: 10px 0;
+    overflow: hidden;
+    /* لمنع الصفحة من السحب أثناء التوقيع على الموبايل */
+    touch-action: none; 
+}
+
+#sigCanvas {
+    display: block;
+    width: 100%;
+    background: #fcfbf9;
+    cursor: crosshair;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.clear-btn {
+    background: none;
+    border: none;
+    color: #cc5555;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.submit-btn {
+    width: 100%;
+    background: #b38b46;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 10. التعليقات والفوتر */
+.comments-list {
+    margin-top: 15px;
+}
+
+.comment-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border-right: 4px solid #b38b46;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #2b3a42;
+}
+
+.wedding-footer {
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 30px;
+}
+
+.footer-rings { font-size: 2rem; margin-bottom: 10px; }
+.share-btn {
+    background: #25D366; /* لون واتساب */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-top: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوة زفاف علي ومها</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="petals-container" id="petalsContainer"></div>
+
+    <div class="splash-screen" id="splashScreen">
+        <div class="splash-content">
+            <div class="sparkle-icon">✦</div>
+            <button class="open-btn" id="openBtn">اضغط لفتح الدعوة</button>
+            <p class="sub-text">Tap to open</p>
+        </div>
+    </div>
+
+    <div class="door-container" id="doorContainer">
+        <div class="door door-left"></div>
+        <div class="door door-right"></div>
+    </div>
+
+    <main class="main-card hidden" id="mainCard">
+        
+        <div class="audio-controls">
+            <button id="musicBtn" class="music-btn">🎵</button>
+            <audio id="bgMusic" loop>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+            </audio>
+        </div>
+
+        <section class="hero-section">
+            <div class="lang-switch">
+                <span>EN</span> | <span class="active">AR</span>
+            </div>
+            <p class="wedding-title">• زفاف •</p>
+            <h1 class="couple-names">علي <span class="and-word">&</span> مها</h1>
+            <div class="divider">✨</div>
+        </section>
+
+        <section class="details-section">
+            <div class="info-box">
+                <p class="invitation-text">
+                    "يسعدنا ويشرفنا دعوتكم لحضور حفل زفافنا، نتمنى أن تشاركونا هذه اللحظات السعيدة وتكونوا جزءاً من فرحتنا."
+                </p>
+                
+                <div class="detail-item">
+                    <span class="icon">📅</span>
+                    <div class="item-text">
+                        <h3>التاريخ</h3>
+                        <p>الجمعة، 25 ديسمبر 2026</p>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <span class="icon">🕒</span>
+                    <div class="item-text">
+                        <h3>الوقت</h3>
+                        <p>من 4:00 م إلى 10:00 م</p>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <span class="icon">📍</span>
+                    <div class="item-text">
+                        <h3>المكان</h3>
+                        <p>قاعة الأحلام - المشير</p>
+                    </div>
+                </div>
+
+                <a href="https://maps.google.com" target="_blank" class="maps-btn">
+                    🗺️ افتح في خرائط جوجل
+                </a>
+            </div>
+        </section>
+        <section class="notes-section">
+            <div class="info-box text-center">
+                <div class="note-item">
+                    <span class="icon">👔</span>
+                    <h3>كود الملابس</h3>
+                    <p>رسمي - بدلة أو ثوب رسمي</p>
+                </div>
+                <hr class="sub-divider">
+                <div class="note-item">
+                    <span class="icon">⚠️</span>
+                    <h3>ملاحظات مهمة</h3>
+                    <p>يرجى الحضور قبل موعد الحفل بنصف ساعة. الأطفال مرحب بهم في قلوبنا فقط 🤍</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="countdown-section">
+            <h2 class="section-title">✦ العد التنازلي ✦</h2>
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span class="number" id="days">00</span>
+                    <span class="label">يوم</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="hours">00</span>
+                    <span class="label">ساعة</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="minutes">00</span>
+                    <span class="label">دقيقة</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="seconds">00</span>
+                    <span class="label">ثانية</span>
+                </div>
+            </div>
+            
+            <div class="calendar-buttons">
+                <button class="cal-btn">📅 أضف إلى Google Calendar</button>
+                <button class="cal-btn">🍏 أضف إلى Apple Calendar</button>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <h2 class="section-title">📸 جدار الصور</h2>
+            <p class="section-subtitle">شاركونا لحظاتنا الجميلة</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=500" alt="صورة زفاف"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=500" alt="خواتم"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=500" alt="قاعة الفرح"></div>
+                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=500" alt="العرسان"></div>
+            </div>
+        </section>
+
+        <section class="guestbook-section">
+            <div class="guestbook-card">
+                <h2 class="section-title">✍️ سجل الضيوف</h2>
+                <p class="section-subtitle">اكتب كلمة حلوة للعروسين ووقع بيدك</p>
+                
+                <form id="guestbookForm" onsubmit="event.preventDefault();">
+                    <div class="form-group">
+                        <input type="text" id="guestName" placeholder="اسمك الكريم *" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="guestMessage" placeholder="اكتب كلمة حلوة للعروسين... *" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="signature-area">
+                        <label>التوقيع (اختياري):</label>
+                        <div class="canvas-wrapper">
+                            <canvas id="sigCanvas" width="300" height="150"></canvas>
+                        </div>
+                        <button type="button" id="clearSigBtn" class="clear-btn">🧹 امسح التوقيع</button>
+                    </div>
+
+                    <button type="submit" id="submitMsgBtn" class="submit-btn">ارسل رسالتك 💌</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="comments-section">
+            <h3 class="comments-title">التهاني والتعليقات</h3>
+            <div class="comments-list" id="commentsList">
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <span class="comment-author">أحمد محمد</span>
+                        <span class="comment-time">منذ 3 أيام</span>
+                    </div>
+                    <p class="comment-body">ألف مبروك! ربنا يتمم بخير ويسعدكم.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="wedding-footer">
+            <div class="footer-rings">💍</div>
+            <h2>علي & مها</h2>
+            <button class="share-btn">🔗 شارك عبر واتساب</button>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
